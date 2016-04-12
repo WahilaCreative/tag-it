@@ -547,9 +547,9 @@
                 var self = this;
                 var tags = this.tagList.find(
                     '.tagit-choice'
-                ).not(tag).map(function () {
+                ).not(tag).get().map(function (el) {
                     return self.tagLabel(
-                        $(this)
+                        $(el)
                     );
                 });
                 this._updateSingleTagsField(tags);
