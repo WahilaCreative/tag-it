@@ -544,10 +544,13 @@
             }
 
             if (this.options.singleField) {
-                var tags = this.assignedTags();
-                var removedTagLabel = this.tagLabel(tag);
-                tags = $.grep(tags, function(el){
-                    return el != removedTagLabel;
+                var self = this;
+                var tags = this.tagList.find(
+                    '.tagit-choice'
+                ).not(tag).map(function () {
+                    return self.tagLabel(
+                        $(this)
+                    );
                 });
                 this._updateSingleTagsField(tags);
             }
